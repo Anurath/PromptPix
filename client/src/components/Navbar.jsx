@@ -5,7 +5,7 @@ import logoImage from '../assets/logo.png';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 export default function Navbar() {
-    const {user}=useContext(AppContext);
+    const {user,setShowLogin}=useContext(AppContext);
     return (
         <nav className='flex justify-between items-center px-12 py-4'>
             <div> <Link to="/"><img src={logoImage} alt="" height={50} width={50} className='rounded-full' /></Link> </div>
@@ -23,7 +23,7 @@ export default function Navbar() {
                             <img className='w-10 drop-shadow' src={assets.profile_icon} alt="" />
                             <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12'>
                                 <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
-                                    <li className='py-4 px-2 cursor-pointer pr-10'>Logout</li>
+                                    <li  className='py-4 px-2 cursor-pointer pr-10'>Logout</li>
                                 </ul>
                             </div>
                         </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
                     :
                     <div className='flex items-center gap-2 sm:gap-5'>
                         <Link to='/buy'><p className='cursor-pointer'>Priceing</p></Link>
-                        <button className='bg-zinc-800 text-white px-7 py-2 sm:py-2 text-sm rounded-full'>Login</button>
+                        <Link to='/' ><button onClick={()=>{setShowLogin(true)}} className='bg-zinc-800 text-white px-7 py-2 sm:py-2 text-sm rounded-full'>Login</button></Link>
                     </div>
             }
         </nav>
