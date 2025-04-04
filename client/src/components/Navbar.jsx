@@ -31,7 +31,7 @@ export default function Navbar() {
                     :
                     <div className='flex items-center gap-2 sm:gap-5'>
                         <Link to='/buy'><p className='cursor-pointer'>Priceing</p></Link>
-                        <Link to='/' ><button onClick={()=>{setShowLogin(true)}} className='bg-zinc-800 text-white px-7 py-2 sm:py-2 text-sm rounded-full'>Login</button></Link>
+                        <Link to='/' ><button onClick={()=>{setShowLogin(true)}} className='bg-zinc-800 text-white px-7 py-2 sm:py-2 text-sm rounded-full cursor-pointer'>Login</button></Link>
                     </div>
             }
         </nav>

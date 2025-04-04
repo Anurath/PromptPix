@@ -1,7 +1,8 @@
-import { useState } from "react"
-import { assets } from "../assets/assets"
-import Footer from "../components/Footer"
-import Navbar from "../components/NavBar"
+import { useState } from "react";
+import { assets } from "../assets/assets";
+import Footer from "../components/Footer";
+import Navbar from "../components/NavBar";
+import {motion} from 'framer-motion';
 export default function Result() {
     const [image , setImage]=useState(assets.sample_img_1);
     const [isImageLoaded,setIsImageLoaded]=useState(false);
@@ -16,7 +17,12 @@ export default function Result() {
     return (
         <div>
             <Navbar />
-            <form onSubmit={onSubmitHandler} className="flex flex-col min-h-[90vh] justify-center items-center">
+            <motion.form
+            initial={{opacity:0.2,y:100}}
+            transition={{duration:1}}
+            whileInView={{opacity:1,y:0}}
+            viewport={{once:true}}
+            onSubmit={onSubmitHandler} className="flex flex-col min-h-[90vh] justify-center items-center">
                 <div>
                     <div className="relative">
                         <img src={image} className="max-w-sm rounded mb-3" alt="" />
@@ -37,7 +43,7 @@ export default function Result() {
                     <a href={image} download className="bg-zinc-900 px-10 py-3 rounded-full cursor-pointer text-white">Download</a>
                 </div>
                 }
-            </form>
+            </motion.form>
             <Footer />
         </div>
     )
