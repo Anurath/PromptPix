@@ -1,3 +1,8 @@
+
+import {ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import Footer from "../components/Footer";
@@ -16,6 +21,7 @@ export default function Result() {
 
     return (
         <div>
+            <ToastContainer position='bottom-right'/>
             <Navbar />
             <motion.form
             initial={{opacity:0.2,y:100}}

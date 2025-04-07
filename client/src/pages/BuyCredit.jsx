@@ -1,3 +1,7 @@
+
+import {ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 import { useContext } from "react";
 import { assets, plans } from "../assets/assets";
 import Footer from "../components/Footer";
@@ -8,6 +12,7 @@ export default function BuyCredit(){
     const {user}=useContext(AppContext);
     return(
         <div>
+            <ToastContainer position='bottom-right'/>
             <Navbar/>
             <motion.div
             initial={{opacity:0.2,y:100}}

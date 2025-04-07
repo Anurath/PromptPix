@@ -1,3 +1,6 @@
+import {ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 import { useContext } from "react"
 import Description from "../components/Description"
 import Footer from "../components/Footer"
@@ -12,6 +15,7 @@ export default function Home(){
     const {showLogin}=useContext(AppContext);
     return(
         <div>
+            <ToastContainer position='bottom-right'/>
             <Navbar />
             {
                 showLogin && <Login/>
