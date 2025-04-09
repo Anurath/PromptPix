@@ -3,19 +3,35 @@ import {ToastContainer} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import {motion} from 'framer-motion';
+import { AppContext } from '../context/AppContext';
 export default function Result() {
     const [image , setImage]=useState(assets.sample_img_1);
     const [isImageLoaded,setIsImageLoaded]=useState(false);
     const [loading,isLoading]=useState(false);
     const [input,setInput]=useState('');
 
+
+    const {generateImage}=useContext(AppContext);
+
     const onSubmitHandler = async (e) =>{
-        console.log("Hello");
+        e.preventDefault();
+        isLoading(true);
+
+        if(input)
+        {
+            const image = await generateImage(input);
+
+            if(image){
+                setIsImageLoaded(true);
+                setImage(image);
+            }
+        }
+        isLoading(false);
     }
 
 

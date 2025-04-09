@@ -1,54 +1,80 @@
 import { toast } from "react-toastify";
 import axios from 'axios';
 
-import { createContext,useEffect,useState } from "react";
-export const AppContext=createContext()
-const AppContextProvider=(props)=>{
+import { createContext, useEffect, useState } from "react";
+export const AppContext = createContext()
+const AppContextProvider = (props) => {
     const [user, setUser] = useState(false);
-    const [showLogin,setShowLogin]=useState(false);
-    const [token ,setToken] = useState(localStorage.getItem('token'));
+    const [showLogin, setShowLogin] = useState(false);
+    const [token, setToken] = useState(localStorage.getItem('token'));
 
-    const [credit,setCredit] = useState(0);
+    const [credit, setCredit] = useState(0);
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-    const loadCreditsData = async ()=>{
-        try{
-            const {data} = await axios.get(`${backendUrl}/api/user/credits`, {headers:{token}});
+    const loadCreditsData = async () => {
+        try {
+            const { data } = await axios.get(`${backendUrl}/api/user/credits`, { headers: { token } });
 
-            if(data.success){
+            if (data.success) {
                 setCredit(data.credits);
                 setUser(data.user);
             }
-        }catch(error)
-        {
+        } catch (error) {
             console.log(error);
             toast.error(error.message);
         }
     }
 
 
-    const logout = ()=>{
+
+    const generateImage = async (prompt) => {
+        try {
+            const { data } = await axios.post(backendUrl + '/api/image/generate-image', { prompt }, { headers: { token } });
+
+
+            if (data.success) {
+                loadCreditsData();
+                return data.resultImage
+            }
+            else {
+                toast.error(data.message);
+                loadCreditsData();
+                if (data.creditBalance === 0) {
+                    setTimeout(() => {
+                        window.location.href = '/buy';
+                    },2000);
+                }
+                
+            }
+
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
+
+
+    const logout = () => {
         console.log(credit);
         localStorage.removeItem('token');
         setToken('');
         setUser(null);
     }
 
-    useEffect(()=>{
-        if(token){
-            loadCreditsData(); 
+    useEffect(() => {
+        if (token) {
+            loadCreditsData();
         }
-    },[token])
+    }, [token])
 
-    const value={
-        user,setUser,showLogin,setShowLogin,backendUrl,
-        token ,setToken,
-        credit,setCredit,loadCreditsData,logout
+    const value = {
+        user, setUser, showLogin, setShowLogin, backendUrl,
+        token, setToken,
+        credit, setCredit, loadCreditsData, logout, generateImage
     }
-    return(
+    return (
         <AppContext.Provider value={value}>
-                {props.children}
+            {props.children}
         </AppContext.Provider>
     )
 }
