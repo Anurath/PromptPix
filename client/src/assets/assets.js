@@ -58,24 +58,24 @@ export const stepsData = [
 export const testimonialsData = [
     {
         image:profile_img_1,
-        name:'Donald Jackman',
+        name:'Kunal Barkade',
         role:'Graphic Designer',
         stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        text: `This tool has completely changed the way I approach my design ideas. I just type what’s in my head, and the visuals I get are stunning!`
     },
     {
         image:profile_img_2,
-        name:'Richard Nelson',
+        name:'Sanket Bhagwat',
         role:'Content Creator',
         stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        text: `I use this app for my thumbnails and social posts. The images are vibrant and match my prompts perfectly — it saves me hours of work.`
     },
     {
         image:profile_img_1,
-        name:'Donald Jackman',
+        name:'Nikhil Ghadge',
         role:' Graphic Designer',
         stars:4,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        text: `The image quality is impressive, and it gives me tons of inspiration for my design projects. Sometimes I tweak the results, but overall it’s a great asset.`
     },
 ]
 

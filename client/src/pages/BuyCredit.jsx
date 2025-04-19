@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useContext } from "react";
 import { assets, plans } from "../assets/assets";
+import logo from '../assets/sIcon.png';
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import { AppContext } from "../context/AppContext";
@@ -27,7 +28,7 @@ export default function BuyCredit(){
                     {
                         plans.map((item,index)=>(
                             <div className="bg-white drop-shadow-sm border rounded py-12 px-8 text-gray-600 hover:scale-105 transition-all duration-500" key={index}>
-                                <img src={assets.sIcon} width={40} alt="" />
+                                <img src={logo} width={40} alt="" />
                                 <p className="mt-3 mb-1 font-semibold">{item.id}</p>
                                 <p className="text-sm">{item.desc}</p>
                                 <p className="mt-6"><span className="text-3xl font-medium">${item.price}</span>/{item.credits} credits</p>
