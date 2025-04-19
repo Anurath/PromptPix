@@ -7,7 +7,9 @@ import star_icon from './star_icon.svg'
 import rating_star from './rating_star.svg'
 import sample_img_1 from './sample_img_1.png'
 import sample_img_2 from './sample_img_2.png'
-import profile_img_1 from './profile_img_1.png'
+import sanket from './sanket.jpg'
+import nikhil from './nikhil.jpg'
+import kunal from './kunal.jpg'
 import profile_img_2 from './profile_img_2.png'
 import step_icon_1 from './step_icon_1.svg'
 import step_icon_2 from './step_icon_2.svg'
@@ -57,21 +59,21 @@ export const stepsData = [
 
 export const testimonialsData = [
     {
-        image:profile_img_1,
+        image:kunal,
         name:'Kunal Barkade',
         role:'Graphic Designer',
         stars:5,
         text: `This tool has completely changed the way I approach my design ideas. I just type what’s in my head, and the visuals I get are stunning!`
     },
     {
-        image:profile_img_2,
-        name:'Sanket Bhagwat',
+        image:sanket,
+        name:'Kshitij Mahajan',
         role:'Content Creator',
         stars:5,
         text: `I use this app for my thumbnails and social posts. The images are vibrant and match my prompts perfectly — it saves me hours of work.`
     },
     {
-        image:profile_img_1,
+        image:nikhil,
         name:'Nikhil Ghadge',
         role:' Graphic Designer',
         stars:4,
