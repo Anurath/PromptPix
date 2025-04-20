@@ -57,6 +57,8 @@ export const stepsData = [
     },
   ];
 
+
+  //review data
 export const testimonialsData = [
     {
         image:kunal,
@@ -81,6 +83,8 @@ export const testimonialsData = [
     },
 ]
 
+
+//credit plan data
 export const plans = [
     {
       id: 'Basic',
