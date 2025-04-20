@@ -39,6 +39,8 @@ export const assets = {
     profile_icon
 }
 
+//steps data how to use it
+
 export const stepsData = [
     {
       title: 'Describe Your Vision',
